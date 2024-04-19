@@ -25,6 +25,7 @@ const credentials = {
     ca: ca
 }
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Rota para intermediar a chamada de API
@@ -51,7 +52,7 @@ app.post('/api/intermediary', async (req, res) => {
 });
 
 // Iniciando o servidor
-const httpsServer = https.createServer(credentials,cors(corsOptions), app);
+const httpsServer = https.createServer(credentials, app);
 
 httpsServer.listen(PORT, () => {
     console.log('Servidor rodando');
