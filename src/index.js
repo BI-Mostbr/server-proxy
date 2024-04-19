@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3334;
 
 // Defina o endereço do Servidor 2
-const SERVER_2_URL = 'http://15.228.159.197:3333/api/intermediary/';
+const SERVER_2_URL = 'http://18.231.162.175:3333/api/intermediary/';
 
 app.use(express.json());
 
