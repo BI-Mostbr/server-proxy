@@ -9,9 +9,9 @@ const PORT = 3334;
 // Defina o endereço do Servidor 2
 const SERVER_2_URL = 'http://18.231.162.175:3333/api/intermediary/';
 
-const certificado = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/cert.pem');
-const chave = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/privkey.pem');
-const ca = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/chain.pem');
+const certificado = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/cert1.pem');
+const chave = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/privkey1.pem');
+const ca = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/chain1.pem');
 
 const credentials = {
     key: chave,
