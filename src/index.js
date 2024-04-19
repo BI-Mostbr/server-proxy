@@ -8,6 +8,16 @@ const PORT = 3334;
 // Defina o endereço do Servidor 2
 const SERVER_2_URL = 'http://18.231.162.175:3333/api/intermediary/';
 
+const certificado = fs.readFileSync('etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/cert.pem');
+const chave = fs.readFileSync('etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/privkey.pem');
+const ca = fs.readFileSync('etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/chain.pem');
+
+const credentials = {
+    key: chave,
+    cert: certificado,
+    ca: ca
+}
+
 app.use(express.json());
 
 // Rota para intermediar a chamada de API
@@ -34,6 +44,8 @@ app.post('/api/intermediary', async (req, res) => {
 });
 
 // Iniciando o servidor
-app.listen(PORT, () => {
-  console.log('Servidor intermediário está rodando na porta', PORT);
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(PORT, () => {
+    console.log('Servidor rodando');
 });
