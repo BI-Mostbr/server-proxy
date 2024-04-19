@@ -6,7 +6,7 @@ const fs = require('fs');
 const app = express();
 const PORT = 3334;
 
-// Defina o endereço do Servidor 2
+// Defina o endereço do Servidor
 const SERVER_2_URL = 'http://18.231.162.175:3333/api/intermediary/';
 
 const certificado = fs.readFileSync('/home/ubuntu/server-node-proxy-most/cert.pem');
