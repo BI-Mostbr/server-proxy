@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const https = require('https');
 const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3334;
@@ -13,7 +14,7 @@ const certificado = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.serv
 const chave = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.server-node.mostbr.com.br/privkey1.pem');
 const ca = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.server-node.mostbr.com.br/chain1.pem');
 
-var corsOptions = {
+const corsOptions = {
     origin: 'https://app.flutterflow.io',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
@@ -50,7 +51,7 @@ app.post('/api/intermediary', async (req, res) => {
 });
 
 // Iniciando o servidor
-const httpsServer = https.createServer(credentials,corsOptions, app);
+const httpsServer = https.createServer(credentials,cors(corsOptions), app);
 
 httpsServer.listen(PORT, () => {
     console.log('Servidor rodando');
