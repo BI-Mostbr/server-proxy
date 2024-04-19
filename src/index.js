@@ -13,6 +13,11 @@ const certificado = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.serv
 const chave = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.server-node.mostbr.com.br/privkey1.pem');
 const ca = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.server-node.mostbr.com.br/chain1.pem');
 
+var corsOptions = {
+    origin: 'https://app.flutterflow.io',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
 const credentials = {
     key: chave,
     cert: certificado,
@@ -45,7 +50,7 @@ app.post('/api/intermediary', async (req, res) => {
 });
 
 // Iniciando o servidor
-const httpsServer = https.createServer(credentials, app);
+const httpsServer = https.createServer(credentials,corsOptions, app);
 
 httpsServer.listen(PORT, () => {
     console.log('Servidor rodando');
