@@ -15,7 +15,7 @@ const chave = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.server-nod
 const ca = fs.readFileSync('/etc/letsencrypt/archive/mostbr.com.br.server-node.mostbr.com.br/chain1.pem');
 
 const corsOptions = {
-    origin: ['https://app.flutterflow.io', 'https://app.mostbr.com.br', 'https://sistema-m-o-s-t-veayjp.flutterflow.app/'],
+    origin: ['https://app.flutterflow.io', 'https://app.mostbr.com.br', 'https://sistema-m-o-s-t-veayjp.flutterflow.app/', 'https://ff-debug-service-frontend-pro-ygxkweukma-uc.a.run.app/'],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
