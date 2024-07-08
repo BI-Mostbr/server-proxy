@@ -49,7 +49,7 @@ app.post('/api/intermediary', async (req, res) => {
         rejectUnauthorized: false // Permite conexões HTTPS não confiáveis
       })
     });
-
+    console.log(data)
     // Retorna a resposta do Servidor 2 para o cliente (Insomnia)
     res.json(response.data);
   } catch (error) {
