@@ -40,6 +40,8 @@ app.post('/api/intermediary', async (req, res) => {
   try {
     const { url, method, body, headers } = req.body;
 
+    console.log(JSON.stringify(body))
+
     // Faz a requisição para o Servidor 2 via HTTP
     const response = await axios({
       method: 'POST',
@@ -49,7 +51,7 @@ app.post('/api/intermediary', async (req, res) => {
         rejectUnauthorized: false // Permite conexões HTTPS não confiáveis
       })
     });
-    console.log(JSON.stringify(body))
+    
     // Retorna a resposta do Servidor 2 para o cliente (Insomnia)
     res.json(response.data);
   } catch (error) {
