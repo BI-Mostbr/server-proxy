@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3334;
 
 // Defina o endereço do Servidor
-const SERVER_2_URL = 'http://18.231.162.175:3333/api/intermediary/';
+const SERVER_2_URL = 'http://54.207.100.48:3333/api/intermediary/';
 
 const certificado = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/cert.pem');
 const chave = fs.readFileSync('/etc/letsencrypt/live/mostbr.com.br.server-node.mostbr.com.br/privkey.pem');
